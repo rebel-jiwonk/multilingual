@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{ lang | default('ko') }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title or 'Default Title' }}</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+
+    <!-- Alpine.js -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ '/assets/main.css' | url }}">
+  </head>
+
+  <body class="font-[Pretendard] {{ body_class or '' }}">
+    {% include "header.njk" %}
+    {{ content | safe }}
+
+    <script>
+  function switchLang(lang) {
+    const currentPath = window.location.pathname;
+
+    // Check if we're in /faq/
+    if (currentPath.includes("/faq/")) {
+      const newPath = `/faq/index.${lang}.html`;
+      window.location.href = newPath;
+    } else {
+      // fallback for homepage
+      const newPath = lang === "ko" ? "/index.ko.html" : "/index.en.html";
+      window.location.href = newPath;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const lang = document.documentElement.lang || 'ko';
+    const activeBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
+    if (activeBtn) {
+      activeBtn.classList.add("bg-[#3B434B]", "text-white");
+    }
+  });
+</script>
+  </body>
+</html>

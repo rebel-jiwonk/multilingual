@@ -1,0 +1,123 @@
+---
+layout: base.njk
+lang: "en"
+title: "How can we help you? | Customer Support"
+permalink: "/index.en.html"
+body_class: "page-landing"
+---
+<body class="page-landing">
+  <div class="landing-main-container flex flex-col items-center justify-center h-[550px] text-center p-10 bg-[#F6F8FA] w-full max-w-[1000px] relative mt-[140px] mb-[120px] mx-auto transition-all duration-500 ease-in-out">
+    <div class="landing-inner-container flex flex-col items-center gap-7">
+      <!-- Secondary Logo Above Title -->
+      <img src="{{ '/assets/logo.png' | url }}" alt="Black Logo" class="main-logo h-7 w-auto max-w-[150px]" />
+  
+      <h1 class="landing-main-title text-4xl mb-8 font-extrabold text-[#3B434B]">
+        How can we help you?
+      </h1>
+  
+      <!-- Search Bar -->
+      <form x-data="{ 
+        searchQuery: '',
+        searchResults: '',
+        fuzzyMatch(query, text) {
+          const normalizedQuery = query.replace(/\s/g, '').toLowerCase();
+          const normalizedText = text.replace(/\s/g, '').toLowerCase();
+          const tokens = normalizedQuery.match(/[\u3131-\uD79D]+|[a-zA-Z0-9]+/g) || [];
+          return tokens.some(token => normalizedText.includes(token));
+        },
+        async performSearch() {
+          const query = this.searchQuery.trim().toLowerCase();
+          const keywords = query.split(/\s+/);
+          this.searchResults = '';
+
+          if (!query) {
+            this.searchResults = '⚠️ Please enter a search term.';
+            return;
+          }
+
+          try {
+            const lang = document.documentElement.lang || 'ko';
+            const response = await fetch(`/faq/faq.${lang}.json`);
+            const faqData = await response.json();
+            let matches = [];
+
+            faqData.forEach(category => {
+              category.faqs.forEach(faq => {
+                const title = faq.title.toLowerCase();
+                const body = faq.body.toLowerCase();
+                const matched = this.fuzzyMatch(query, title) || this.fuzzyMatch(query, body);
+                if (matched) {
+                  matches.push({ 
+                    category: category.category, 
+                    title: faq.title, 
+                    body: faq.body 
+                  });
+                }
+              });
+            });
+
+            if (matches.length === 0) {
+              this.searchResults = `❌ <span class='text-s text-red-500'>No results found for '${this.searchQuery}'.</span>`;
+            } else {
+              window.location.href = `search.html?query=${encodeURIComponent(query)}`;
+            }
+
+          } catch (error) {
+            console.error('Error fetching FAQs:', error);
+            this.searchResults = `❌ An error occurred while loading the FAQ data.`;
+          }
+        }
+      }" 
+      x-on:submit.prevent="performSearch" 
+      class="landing-search-form w-full max-w-lg text-center">
+
+        <div class="landing-search-container flex w-full max-w-lg items-center space-x-2 gap-2">
+          <!-- Search Input -->
+          <input autocomplete="off" x-model="searchQuery" type="text" id="searchQuery" 
+            placeholder="Enter a keyword (e.g. 'compiler', 'profiler')" 
+            class="landing-search-bar w-[360px]">
+    
+          <!-- Search Button -->
+          <button 
+            @click="performSearch" 
+            type="submit" 
+            x-bind:disabled="searchQuery.length === 0" 
+            x-bind:class="searchQuery.length > 0 
+              ? 'bg-[#808A96] text-[#EFF2F5] hover:bg-[#E2EBF2] hover:text-[#808A96] transition-all' 
+              : 'bg-[#E2EBF2] text-[#BBC4CF] cursor-not-allowed'"
+            class="landing-search-button btn px-6 py-3 text-lg transition-all">
+            Search
+          </button>
+        </div>
+  
+        <!-- Search Results Message -->
+        <p class="landing-search-results mt-4 mb-3" x-html="searchResults"></p>
+      </form>
+  
+      <!-- Subtitle -->
+      <p class="text-lg text-[#808A96]">
+        Browse frequently asked questions or request customer support.
+      </p>
+  
+      <!-- CTA Buttons -->
+      <div class="landing-btn-container flex space-x-1">
+        <a 
+          x-data 
+          @click.prevent="
+            window.location.href = document.documentElement.lang === 'en' 
+              ? '/faq/index.en.html' 
+              : '/faq/index.ko.html'
+          "
+          class="landing-btn landing-btn-primary cursor-pointer">
+          View FAQ
+        </a>
+        <a href="mailto:client_support@rebellions.ai" class="landing-btn landing-btn-primary">
+          Request Support
+        </a>
+        <a href="https://docs.rbln.ai" class="landing-btn landing-btn-primary">
+          SDK Developer Docs
+        </a>
+      </div>
+    </div>
+  </div>
+</body>

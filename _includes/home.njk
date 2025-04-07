@@ -1,0 +1,78 @@
+<div class="main-container flex flex-col items-center justify-center h-[550px] text-center p-10 bg-[#F6F8FA] w-full max-w-[1000px] relative mt-[140px] mb-[120px] mx-auto transition-all duration-500 ease-in-out">
+  <div class="inner-container flex flex-col items-center gap-7">
+    <img src="/assets/logo.png" alt="Black Logo" class="main-logo h-7 w-auto max-w-[150px]" />
+
+    <h1 class="text-4xl mb-8 font-extrabold text-[#3B434B]">
+      {{ translations.heading }}
+    </h1>
+
+    <form x-data="{ 
+      searchQuery: '',
+      searchResults: '',
+      fuzzyMatch(query, text) {
+        const normalizedQuery = query.replace(/\s/g, '').toLowerCase();
+        const normalizedText = text.replace(/\s/g, '').toLowerCase();
+        const tokens = normalizedQuery.match(/[\u3131-\uD79D]+|[a-zA-Z0-9]+/g) || [];
+        return tokens.some(token => normalizedText.includes(token));
+      },
+      async performSearch() {
+        const query = this.searchQuery.trim().toLowerCase();
+        this.searchResults = '';
+        if (!query) {
+          this.searchResults = '{{ translations.searchWarning }}';
+          return;
+        }
+        try {
+          const lang = document.documentElement.lang || 'ko';
+          const response = await fetch(`/faq/faq.${lang}.json`);
+          const faqData = await response.json();
+          let matches = [];
+          faqData.forEach(category => {
+            category.faqs.forEach(faq => {
+              const title = faq.title.toLowerCase();
+              const body = faq.body.toLowerCase();
+              if (this.fuzzyMatch(query, title) || this.fuzzyMatch(query, body)) {
+                matches.push({ category: category.category, title: faq.title, body: faq.body });
+              }
+            });
+          });
+          if (matches.length === 0) {
+            this.searchResults = `❌ <span class='text-s text-red-500'>${this.searchQuery} {{ translations.noResults }}</span>`;
+          } else {
+            window.location.href = 'search.html?query=' + encodeURIComponent(query);
+          }
+        } catch (error) {
+          console.error('FAQ fetch error:', error);
+          this.searchResults = '{{ translations.fetchError }}';
+        }
+      }
+    }" x-on:submit.prevent="performSearch" class="search-form w-full max-w-lg text-center">
+      <div class="search-container flex w-full max-w-lg items-center space-x-2 gap-2">
+        <input x-model="searchQuery" type="text" id="searchQuery" autocomplete="off"
+          placeholder="{{ translations.searchPlaceholder }}"
+          class="search-bar w-[360px]" />
+        <button 
+          @click="performSearch" 
+          type="submit"
+          x-bind:disabled="searchQuery.length === 0"
+          x-bind:class="searchQuery.length > 0 
+            ? 'bg-[#808A96] text-[#EFF2F5] hover:bg-[#E2EBF2] hover:text-[#808A96] transition-all' 
+            : 'bg-[#E2EBF2] text-[#BBC4CF] cursor-not-allowed'"
+          class="btn px-6 py-3 text-lg transition-all search-button">
+          {{ translations.searchButton }}
+        </button>
+      </div>
+      <p class="search-results mt-4 mb-3" x-html="searchResults"></p>
+    </form>
+
+    <p class="text-lg text-[#808A96]">
+      {{ translations.subtitle }}
+    </p>
+
+    <div class="btn-container flex space-x-1">
+      <a href="/faq" class="btn btn-primary">{{ translations.faqButton }}</a>
+      <a href="mailto:client_support@rebellions.ai" class="btn btn-primary">{{ translations.supportButton }}</a>
+      <a href="https://docs.rbln.ai" class="btn btn-primary">{{ translations.docsButton }}</a>
+    </div>
+  </div>
+</div>

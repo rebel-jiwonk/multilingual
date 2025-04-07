@@ -1,0 +1,140 @@
+---
+layout: base.njk
+lang: "ko"
+title: FAQ | 고객지원
+body_class: "page-landing"
+permalink: "/faq/index.ko.html"
+---
+ <div class="faq-container flex flex-row w-full max-w-[1200px] mb-[100px] mt-[140px] p-5 bg-[#F6F8FA] min-h-[600px] items-start gap-" data-lang="{{ lang }}">
+  <!-- Left Column: Categories -->
+  <div class="faq-sidebar flex flex-col w-[260px] max-w-[260px] justify-start pl-[30px] pr-4">
+    <h2 class="faq-title text-[1.75rem] font-bold p-3 text-center text-[#3B434B]">자주 묻는 질문</h2>
+    <div id="faq-categories" class="faq-category-list flex flex-col gap-2 min-w-[220px] pr-2"></div>
+  </div>
+
+  <!-- Right Column: FAQ Content -->
+  <div class="faq-main flex flex-col pl-[25px] gap-2 border-[#808A96] overflow-y-auto w-[800px] min-w-[800px] max-w-[800px]">
+    <!-- Search + Contact -->
+    <div class="faq-search-bar text-m font-semibold text-[#3B434B] flex items-center whitespace-nowrap p-[9px] pr-[30px]">
+      <p>
+        찾으시는 질문이 없나요? 
+        <a href="mailto:client_support@rebellions.ai" class="text-gray-800 hover:text-gray-600 underline">여기</a>로 연락 주세요!
+      </p>
+      <div class="faq-search-group flex items-center space-x-2 ml-auto">
+        <input id="faqSearchInput" type="text" placeholder="검색어를 입력하세요" onkeypress="handleKeyPress(event)" class="faq-search-input w-[190px] px-6 h-[44px] text-sm border border-gray-400 text-center focus:outline-none">
+        <button onclick="performSearch()" class="faq-search-button bg-[#808A96] text-[#EFF2F5] text-sm hover:bg-[#E2EBF2] hover:text-[#808A96] px-6 h-[44px] transition-all">검색</button>
+      </div>
+    </div>
+    <div id="faq-content" class="faq-content-list"></div>
+  </div>
+</div>
+
+<script>
+  function fuzzyMatch(query, text) {
+    const normalizedText = text.replace(/\s/g, '').toLowerCase();
+    const tokens = query.trim().toLowerCase().replace(/\s+/g, '').match(/[\u3131-\uD79D\w]+/g) || [];
+    return tokens.every(token => normalizedText.includes(token));
+  }
+
+  async function loadFAQs() {
+  try {
+    const response = await fetch("/faq.ko.json");
+    if (!response.ok) throw new Error(`Failed to load faq.${currentLang}.json`);
+
+    const categories = await response.json();
+
+    const categoryContainer = document.getElementById("faq-categories");
+    const faqContentContainer = document.getElementById("faq-content");
+
+    categoryContainer.innerHTML = "";
+    faqContentContainer.innerHTML = `<p class="text-gray-500 text-sm">Select a category.</p>`;
+
+    if (categories.length === 0) {
+      categoryContainer.innerHTML = "<p class='text-gray-500'>No FAQs to show.</p>";
+      return;
+    }
+
+    categories.forEach((category, index) => {
+      const categoryDiv = document.createElement("div");
+      categoryDiv.className = "faq-category flex items-center justify-center px-5 py-2 text-lg border border-[#808A96] bg-[#EFF2F5] text-[#3B434B] transition-all cursor-pointer hover:bg-[#D9E4ED] hover:text-[#3B434B] hover:border-[#3B434B] active:bg-[#52F756] active:text-[#3B434B]";
+      categoryDiv.innerText = category.category;
+      categoryDiv.onclick = () => showFAQ(category.category, category.faqs);
+      categoryContainer.appendChild(categoryDiv);
+
+      if (index === 0) {
+        categoryDiv.classList.add("active");
+        showFAQ(category.category, category.faqs);
+      }
+    });
+  } catch (error) {
+    console.error("Error loading FAQs:", error);
+    document.getElementById("faq-categories").innerHTML = "<p class='text-red-500'>FAQ 데이터를 불러오는 중 오류가 발생했습니다.</p>";
+  }
+}
+
+  function showFAQ(categoryName, faqs) {
+    const faqContentContainer = document.getElementById("faq-content");
+    faqContentContainer.innerHTML = "";
+    faqContentContainer.style.display = "flex";
+
+    document.querySelectorAll(".faq-category").forEach(cat => {
+      cat.classList.remove("active");
+      if (cat.innerText === categoryName) cat.classList.add("active");
+    });
+
+    faqs.forEach(faq => {
+      const faqItem = document.createElement("div");
+      faqItem.classList.add("faq-item");
+
+      faqItem.innerHTML = `
+        <div class="faq-question text-[0.95rem] px-6 py-2 cursor-pointer flex justify-between items-center border border-[#808A96] w-full transition duration-300 ease-in-out hover:bg-[#D9E4ED] gap-2" onclick="toggleFaq(this)">
+          <span class="flex-1">${faq.title}</span>
+          <button class="toggle-btn text-xl flex-shrink-0">+</button>
+        </div>
+        <div class="faq-answer whitespace-pre-line text-left faq-prose prose-sm max-w-none hidden px-[12px] text-[0.95rem] border-t border-[#E2EBF2] max-h-[200px] overflow-y-auto overflow-x-hidden">
+          ${faq.body}
+        </div>
+      `;
+      faqContentContainer.appendChild(faqItem);
+    });
+  }
+
+  function toggleFaq(questionElement) {
+    const allQuestions = document.querySelectorAll('.faq-question');
+    const allAnswers = document.querySelectorAll('.faq-answer');
+    const allToggleButtons = document.querySelectorAll('.toggle-btn');
+    const answerElement = questionElement.nextElementSibling;
+    const toggleButton = questionElement.querySelector('.toggle-btn');
+
+    if (answerElement.style.display === 'block') {
+      answerElement.style.display = 'none';
+      toggleButton.innerText = '+';
+      questionElement.classList.remove('active');
+    } else {
+      allAnswers.forEach(answer => answer.style.display = 'none');
+      allToggleButtons.forEach(button => button.innerText = '+');
+      allQuestions.forEach(q => q.classList.remove('active'));
+
+      answerElement.style.display = 'block';
+      answerElement.style.maxWidth = '100%';
+      toggleButton.innerText = '−';
+      questionElement.classList.add('active');
+    }
+  }
+
+  window.onload = loadFAQs;
+
+  function performSearch() {
+    const query = document.getElementById("faqSearchInput").value.trim();
+    if (!query) {
+      alert("검색어를 입력하세요!");
+      return;
+    }
+    const normalizedQuery = query.replace(/\s+/g, '');
+    window.location.href = `/search.html?query=${encodeURIComponent(normalizedQuery)}`;
+  }
+
+  function handleKeyPress(event) {
+    if (event.key === "Enter") performSearch();
+  }
+</script>

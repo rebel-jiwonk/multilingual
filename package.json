@@ -1,0 +1,33 @@
+{
+  "name": "rbln_cs",
+  "version": "1.0.0",
+  "description": "Rebellions customer support page",
+  "main": "index.js",
+  "author": "Jiwon Kwak",
+  "license": "MIT",
+  "scripts": {
+    "update": "node generate_faq.js",
+    "teehee": "concurrently \"yarn serve\" \"yarn watch:css\"",
+    "polyglot": "node generate_translations.js",
+    "serve": "yarn exec eleventy -- --serve",
+    "build:css": "postcss assets/main.css -o _site/assets/main.css",
+    "watch:css": "postcss assets/main.css -o _site/assets/main.css --watch"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@tailwindcss/cli": "^4.0.8",
+    "@tailwindcss/postcss": "^4.1.3",
+    "@tailwindcss/typography": "^0.5.16",
+    "autoprefixer": "^10.4.21",
+    "fs-extra": "^11.3.0",
+    "gray-matter": "^4.0.3",
+    "grey-matter": "^0.0.0",
+    "marked": "^15.0.7",
+    "postcss": "^8.5.3"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^4.1.3"
+  }
+}

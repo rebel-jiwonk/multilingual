@@ -1,0 +1,64 @@
+# FAQ Summary  
+## Maintained by: Baddie Jiwon   
+## Last Updated: 2025-04-07
+
+| File Name       | Categories     | Title                                    | Author  | Created Date |
+|----------------|----------------|------------------------------------------|---------|--------------|
+| en/faq_11.en.md | Optimization & Application, Product & Compatibility | Can I run inference on multiple devices? | Kwak Jiwon | 2025-04-07 |
+| en/faq_12.en.md | Optimization & Application | Can I measure and analyze model performance? | Kwak Jiwon | 2025-04-07 |
+| en/faq_10.en.md | Optimization & Application | How do I determin the optimal batch size? | Kwak Jiwon | 2025-04-07 |
+| en/faq_13.en.md | Optimization & Application | Are there profiling and optimization tools? | Kwak Jiwon | 2025-04-07 |
+| en/faq_16.en.md | Optimization & Application, Product & Compatibility | Do you support mixed precision models? | Kwak Jiwon | 2025-04-07 |
+| en/faq_14.en.md | Optimization & Application | How do I process video input files (.mp4)? | Kwak Jiwon | 2025-04-07 |
+| en/faq_17.en.md | Optimization & Application, Product & Compatibility | Which FP16 formats does RBLN SDK support? | Kwak Jiwon | 2025-04-07 |
+| en/faq_26.en.md | Optimization & Application, Product & Compatibility | Which serving frameworks do you support? | Kwak Jiwon | 2025-04-07 |
+| en/faq_29.en.md | Optimization & Application, Support & Troubleshooting | CPU usage is too high during model inference. | Kwak Jiwon | 2025-04-07 |
+| en/faq_37.en.md | Optimization & Application, Product & Compatibility | Do you support Kubernetes? | Kwak Jiwon | 2025-04-07 |
+| en/faq_20.en.md | Product & Compatibility | How are ATOM and REBEL different? | Kwak Jiwon | 2025-04-07 |
+| en/faq_19.en.md | Product & Compatibility | Can I train models with RBLN SDK? | Kwak Jiwon | 2025-04-07 |
+| en/faq_21.en.md | Product & Compatibility | How are NPUs GPUs different | Kwak Jiwon | 2025-04-07 |
+| en/faq_22.en.md | Product & Compatibility | How can I fine-tune models or optimize inference? | Kwak Jiwon | 2025-04-07 |
+| en/faq_32.en.md | Product & Compatibility, Using the SDK | Does RBLN Runtime API support C/C++? | Kwak Jiwon | 2025-04-07 |
+| en/faq_35.en.md | Product & Compatibility, Using the SDK | How do I ensure version compatibility with AI frameworks? | Kwak Jiwon | 2025-04-07 |
+| en/faq_36.en.md | Product & Compatibility, Using the SDK | Is RBLN SDK compatible with PyTorch? | Kwak Jiwon | 2025-04-07 |
+| en/faq_5.en.md | Product & Compatibility, Installation & Setup | Does RBLN SDK support Windows? | Kwak Jiwon | 2025-04-07 |
+| en/faq_6.en.md | Product & Compatibility, Installation & Setup | What is the required Python version and are there additional dependencies? | Kwak Jiwon | 2025-04-07 |
+| en/faq_7.en.md | Product & Compatibility, Using the SDK | Which AI frameworks and libraries does RBLN SDK support? | Kwak Jiwon | 2025-04-07 |
+| en/faq_2.en.md | Using the SDK | Can I compile PyTorch or TensorFlow models with RBLN SDK without code modifications? | Kwak Jiwon | 2025-04-07 |
+| en/faq_31.en.md | Using the SDK, Installation & Setup | How can I improve the performance of transformer-based models like Llama or BERT? | Kwak Jiwon | 2025-04-07 |
+| en/faq_8.en.md | Using the SDK, Installation & Setup | How do I install RBLN Driver? | Kwak Jiwon | 2025-04-07 |
+| en/faq_9.en.md | Using the SDK, Installation & Setup | How do I install RBLN SDK? | Kwak Jiwon | 2025-04-07 |
+| en/faq_23.en.md | Support & Troubleshooting | Is there a forum or a support channel? | Kwak Jiwon | 2025-04-07 |
+| en/faq_24.en.md | Support & Troubleshooting | How often are the firmware and driver updated? | Kwak Jiwon | 2025-04-07 |
+| en/faq_27.en.md | Support & Troubleshooting | Model compilation fails. | Kwak Jiwon | 2025-04-07 |
+| en/faq_28.en.md | Support & Troubleshooting | I get errors during language model compilation and inference. | Kwak Jiwon | 2025-04-07 |
+| en/faq_30.en.md | Support & Troubleshooting, Installation & Setup | I get errors after driver/compiler updates. | Kwak Jiwon | 2025-04-07 |
+| ko/faq_11.ko.md | 서비스 활용/최적화, 제품 정보/호환성 | NPU 여러 개를 분산해서 사용할 수 있나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_12.ko.md | 서비스 활용/최적화 | NPU에서 모델 성능을 측정하고 분석하는 방법은 무엇인가요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_10.ko.md | 서비스 활용/최적화 | 리벨리온 NPU에서 최적의 배치 크기를 결정하는 방법은 무엇인가요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_13.ko.md | 서비스 활용/최적화 | 프로파일링 및 최적화 도구가 제공되나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_16.ko.md | 서비스 활용/최적화, 제품 정보/호환성 | 혼합 정밀(Mixed Precision) 모델을 지원하나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_14.md | 서비스 활용/최적화 | 비디오 입력 파일(.mp4)은 어떻게 처리하나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_17.ko.md | 서비스 활용/최적화, 제품 정보/호환성 | 어떤 FP16 포맷을 지원하나요?  | Kwak Jiwon | 2025-04-07 |
+| ko/faq_26.ko.md | 서비스 활용/최적화, 제품 정보/호환성 | 어떤 서빙 프레임워크를 지원하나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_29.ko.md | 서비스 활용/최적화, 지원 및 문제 해결 | 모델 추론 시 CPU 점유율이 너무 높아요. | Kwak Jiwon | 2025-04-07 |
+| ko/faq_37.ko.md | 서비스 활용/최적화, 제품 정보/호환성 | 쿠버네티스 지원하나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_20.ko.md | 제품 정보/호환성 | ATOM과 REBEL은 어떻게 다른가요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_19.ko.md | 제품 정보/호환성 | 모델 훈련(Training)도 가능한가요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_21.ko.md | 제품 정보/호환성 | NPU와 GPU의 차이점은 무엇인가요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_22.ko.md | 제품 정보/호환성 | 파인 튜닝(Fine-tuning) 및 추론을 최적화하는 방법은 무엇인가요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_32.ko.md | 제품 정보/호환성, SDK 사용법 | RBLN Runtime APIs를 C/C++에서 사용할 수 있나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_35.ko.md | 제품 정보/호환성, SDK 사용법 | AI 프레임워크와의 버전 호환성을 어떻게 보장하나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_36.ko.md | 제품 정보/호환성, SDK 사용법 | 어떤 PyTorch 기능과 호환되나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_5.ko.md | 제품 정보/호환성, 설치 및 설정 | RBLN SDK는 Windows에서 사용 가능한가요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_6.ko.md | 제품 정보/호환성, 설치 및 설정 | RBLN SDK에서 요구하는 파이썬 버전이나 추가적인 의존성이 있나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_7.ko.md | 제품 정보/호환성, SDK 사용법 | RBLN SDK는 어떤 AI 프레임워크와 라이브러리를 지원하나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_2.ko.md | SDK 사용법 | 기존 PyTorch 또는 TensorFlow 모델을 RBLN SDK로 컴파일하려면 코드 수정이 필요한가요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_31.ko.md | SDK 사용법, 설치 및 설정 | 트랜스포머 모델(예: Llama, BERT)을 리벨리온 NPU에서 실행할 때 성능을 향상시키는 설정이나 권장 옵션이 있나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_8.ko.md | SDK 사용법, 설치 및 설정 | RBLN Driver는 어떻게 설치하나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_9.ko.md | SDK 사용법, 설치 및 설정 | RBLN SDK는 어떻게 설치하나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_23.ko.md | 지원 및 문제 해결 | 사용자 커뮤니티 포럼이나 지원 채널이 있나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_24.ko.md | 지원 및 문제 해결 | NPU 펌웨어 또는 드라이버 업데이트 주기는 어떻게 되나요? | Kwak Jiwon | 2025-04-07 |
+| ko/faq_27.ko.md | 지원 및 문제 해결 | 모델 컴파일이 실패했습니다. | Kwak Jiwon | 2025-04-07 |
+| ko/faq_28.ko.md | 지원 및 문제 해결 | 언어모델을 컴파일/추론할 때 에러가 발생합니다. | Kwak Jiwon | 2025-04-07 |
+| ko/faq_30.ko.md | 지원 및 문제 해결, 설치 및 설정 | 드라이버/컴파일러를 업그레이드 하고 나서 제대로 동작하지 않아요. | Kwak Jiwon | 2025-04-07 |

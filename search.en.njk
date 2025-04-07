@@ -1,0 +1,115 @@
+---
+layout: base.njk
+title: Search Result | Customer Support
+body_class: "page-landing"
+permalink: "/search.en.html"
+---
+  <!-- Search Container -->
+  <div class="search-container w-full max-w-3xl max-w-[1000px] mx-auto text-center mt-[150px] p-5 bg-[#F6F8FA] border border-[#E2EBF2] min-h-[auto] mb-32 flex flex-col justify-start data-lang="{{ lang | default('ko') }}">
+    <h1 class="faq-search-title mb-2 mt-8">검색 결과</h1>
+    <div id="results" class="search-results w-max-lg w-full mx-auto p-4"></div>
+    <!-- Search Again Bar -->
+    <div class="faq-search-box flex justify-center items-center space-x-2 min-w-[300px] px-4 gap-2 mt-5">
+      <input type="text" 
+             placeholder="검색어를 입력하세요" 
+             class="faq-search-input px-4 py-3 border border-gray-400 text-center focus:outline-none" 
+             id="searchAgainInput"
+      >
+      <!-- Search Button -->
+      <button class="faq-search-button [#23292F] text-[#EFF2F5] hover:bg-[#808A96] hover:text-[#F6F8FA] px-6 h-[48px] transition-all" onclick="performSearch()">검색</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleFaq(clickedElement) {
+      const answerDiv = clickedElement.parentElement.querySelector('.faq-answer');
+      const toggleButton = clickedElement.querySelector('.toggle-btn');
+      const isOpen = answerDiv.style.display === 'block';
+    
+      // Close all first
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.classList.remove('active');
+        const a = q.parentElement.querySelector('.faq-answer');
+        if (a) a.style.display = 'none';
+        const btn = q.querySelector('.toggle-btn');
+        if (btn) btn.innerText = '+';
+      });
+    
+      // If it was already open, stop here (i.e. just closed it)
+      if (isOpen) return;
+    
+      // Otherwise, open this one
+      answerDiv.style.display = 'block';
+      clickedElement.classList.add('active');
+      if (toggleButton) toggleButton.innerText = '−';
+    }
+
+    function fuzzyMatch(query, text) {
+      const normalizedText = text.replace(/\s/g, '').toLowerCase();
+      const tokens = query.trim().toLowerCase().replace(/\s+/g, '').match(/[\u3131-\uD79D\w]+/g) || [];
+    
+      return tokens.every(token => normalizedText.includes(token));
+    }
+
+    async function searchFAQs() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const query = urlParams.get("query")?.trim().toLowerCase() || "";
+      const keywords = query.split(/\s+/);
+      const resultsContainer = document.getElementById("results");
+      const searchTitle = document.querySelector(".faq-search-title");
+
+      if (query) {
+        searchTitle.innerHTML = `"<span class="text-black-400">${query}</span>"검색 결과`;
+      }
+
+      if (!query) {
+        resultsContainer.innerHTML = `<p class='no-results'>⚠️ 검색 내용을 입력해주세요.</p>`;
+        return;
+      }
+
+      try {
+        const currentLang = document.documentElement.lang || 'ko';
+        const response = await fetch(`/faq.${currentLang}.json`);
+        if (!response.ok) throw new Error("Failed to load FAQ data");
+
+        const faqData = await response.json();
+        let filteredResults = faqData.flatMap(category =>
+          category.faqs.filter(faq => {
+            const normalizedTitle = faq.title.replace(/\s/g, '').toLowerCase();
+            const normalizedBody = faq.body.replace(/\s/g, '').toLowerCase();
+            const normalizedQuery = query.replace(/\s/g, '').toLowerCase();
+            
+            return (
+              normalizedTitle.includes(normalizedQuery) ||
+              normalizedBody.includes(normalizedQuery) ||
+              normalizedQuery.includes(normalizedTitle) ||
+              normalizedQuery.includes(normalizedBody)
+            );
+          })
+        );
+
+        resultsContainer.innerHTML = filteredResults.length === 0 
+          ? `<p class='no-results'>"<span class="text-red-500">${query}</span>" 검색 결과가 없습니다.</p>` 
+          : filteredResults.map(faq => `
+              <div class="faq-search-result">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                  <span class="text-[15px]">${faq.title}</span>
+                  <button class="toggle-btn text-xl">+</button>
+                </div>
+                <div class="faq-answer text-left search-prose text-[15px] max-w-none whitespace-pre-line mt-[18px]">${faq.body}</div>
+              </div>
+            `).join("");
+      } catch (error) {
+        resultsContainer.innerHTML = `<p class='no-results text-red-500'>FAQ 데이터를 불러오는 중 오류가 발생했습니다.</p>`;
+      }
+    }
+
+    function performSearch() {
+      const query = document.getElementById("searchAgainInput").value.trim();
+      if (query) {
+        window.location.href = `search.html?query=${query}`;
+      }
+    }
+
+    searchFAQs();
+  </script>s
