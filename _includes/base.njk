@@ -19,18 +19,19 @@
 
     <script>
   function switchLang(lang) {
-    const currentPath = window.location.pathname;
+  const currentPath = window.location.pathname;
 
-    // Check if we're in /faq/
-    if (currentPath.includes("/faq/")) {
-      const newPath = `/faq/index.${lang}.html`;
-      window.location.href = newPath;
-    } else {
-      // fallback for homepage
-      const newPath = lang === "ko" ? "/index.ko.html" : "/index.en.html";
-      window.location.href = newPath;
-    }
+  if (currentPath.includes("/faq/")) {
+    const newPath = `/faq/index.${lang}.html`;
+    window.location.href = newPath;
+  } else if (currentPath.includes("/search")) {
+    window.location.href = `/search.${lang}.html`;
+  } else {
+    // 💡 this is for the landing page
+    const newPath = lang === "ko" ? "/index.html" : "/index.en.html";
+    window.location.href = newPath;
   }
+}
 
   document.addEventListener("DOMContentLoaded", () => {
     const lang = document.documentElement.lang || 'ko';

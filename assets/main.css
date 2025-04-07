@@ -658,21 +658,21 @@ body.page-landing {
 }
 
 .lang-btn {
-  background-color: #E2EBF2;
-  color: #3B434B;
-  border-color: #BBC4CF;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  background-color: #E2EBF2 !important;
+  color: #3B434B !important;
+  border-color: #BBC4CF !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
 }
 
 .lang-btn:hover {
-  background-color: #D9E4ED;
-  color: #3B434B;
+  background-color: #D9E4ED !important;
+  color: #3B434B !important;
 }
 
 .lang-btn.active {
-  background-color: #52F756;
-  color: #3B434B;
-  border-color: #52F756;
-  font-weight: 600;
+  background-color: #52F756 !important;
+  color: #3B434B !important;
+  border-color: #52F756 !important;
+  font-weight: 600 !important;
 }
