@@ -1,23 +1,14 @@
-<header class="header hidden lg:flex justify-between items-start px-10 mt-10">
-  <!-- Logo Section -->
-  <div>
+<header class="header">
+  <!-- Logo on the left -->
+  <div class="header-logo">
     <a href="/">
-      <img src="/assets/logo_white.png" alt="White Logo" class="logo h-7">
+      <img src="/assets/logo_white.png" alt="White Logo" class="logo" />
     </a>
   </div>
 
-  <!-- Language Toggle -->
- <div class="language-toggle flex space-x-2">
-  <button 
-    onclick="switchLang('ko')" 
-    class="lang-btn px-3 py-1 rounded border transition-all"
-    data-lang="ko"
-  >한국어</button>
-
-  <button 
-    onclick="switchLang('en')" 
-    class="lang-btn px-3 py-1 rounded border transition-all"
-    data-lang="en"
-  >English</button>
-</div>
+  <!-- Language toggle on the right -->
+  <div class="language-toggle">
+    <button onclick="switchLang('ko')" class="lang-btn" data-lang="ko">한국어</button>
+    <button onclick="switchLang('en')" class="lang-btn" data-lang="en">English</button>
+  </div>
 </header>

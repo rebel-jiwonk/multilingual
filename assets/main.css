@@ -34,16 +34,40 @@
 
 /* Landing Index */
 
+/* Clean header layout */
 .header {
   position: absolute;
   top: 1.5rem;
-  left: 3rem;
-  padding: 1rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -3rem;
+  padding: 1.5rem 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 50;
 }
 
-.header-logo {
-  height: 28px; /* Match original h-7 (1.75rem = 28px) */
+/* Language Toggle Top-Right */
+.language-toggle {
+  position: absolute;
+  right: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-right: -18rem;
+}
+
+/* Logo reset */
+.header-logo img.logo {
+  height: 28px;
   width: auto;
+  display: block;
+  margin-left: -18rem;
 }
 
 .main-logo {
@@ -218,7 +242,7 @@ body.page-landing {
     margin-bottom: 1.5rem;
   }
 
-  .header-logo {
+  .logo {
     margin-right: 100px;
     margin: 0;
     height: 24px;
@@ -275,11 +299,6 @@ body.page-landing {
       top: 1.5rem;
       left: 3rem;
       padding: 1rem;
-    }
-    
-    .faq-logo {
-      height: 28px;
-      width: auto;
     }
     
     .faq-container {
@@ -660,19 +679,31 @@ body.page-landing {
 .lang-btn {
   background-color: #E2EBF2 !important;
   color: #3B434B !important;
-  border-color: #BBC4CF !important;
-  font-weight: 500 !important;
+  border: 1px solid #BBC4CF !important;
+  font-weight: 600 !important;
+  padding: 6px 12px !important;
   transition: all 0.3s ease !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .lang-btn:hover {
   background-color: #D9E4ED !important;
+  border: 1px solid #BBC4CF !important;
   color: #3B434B !important;
+  padding: 6px 12px !important;
+  font-weight: 600 !important;
 }
 
 .lang-btn.active {
   background-color: #52F756 !important;
   color: #3B434B !important;
-  border-color: #52F756 !important;
+  border: 1px solid #3B434B !important;
+  padding: 6px 12px !important;
   font-weight: 600 !important;
+}
+
+.lang-btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
