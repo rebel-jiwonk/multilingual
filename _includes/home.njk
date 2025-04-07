@@ -39,7 +39,9 @@
           if (matches.length === 0) {
             this.searchResults = `❌ <span class='text-s text-red-500'>${this.searchQuery} {{ translations.noResults }}</span>`;
           } else {
-            window.location.href = 'search.html?query=' + encodeURIComponent(query);
+            const lang = document.documentElement.lang || 'ko';
+            const searchPage = lang === 'ko' ? '/search.ko.html' : '/search.en.html';
+            window.location.href = `${searchPage}?query=${encodeURIComponent(query)}`;
           }
         } catch (error) {
           console.error('FAQ fetch error:', error);

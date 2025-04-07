@@ -131,7 +131,9 @@ permalink: "/faq/index.en.html"
       return;
     }
     const normalizedQuery = query.replace(/\s+/g, '');
-    window.location.href = `/search.html?query=${encodeURIComponent(normalizedQuery)}`;
+    const lang = document.documentElement.lang || 'ko';
+    const searchPage = lang === 'ko' ? '/search.ko.html' : '/search.en.html';
+              window.location.href = `${searchPage}?query=${encodeURIComponent(query)}`;
   }
 
   function handleKeyPress(event) {

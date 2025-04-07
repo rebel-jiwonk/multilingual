@@ -2,17 +2,11 @@
 layout: base.njk
 title: 검색 결과 | 고객지원
 body_class: "page-landing"
+lang: "ko"
 permalink: "/search.ko.html"
 ---
-    <div>
-      <a href="/">
-        <img src="/assets/logo_white.png" alt="White Logo" class="header-logo h-7 data-lang="{{ lang | default('ko') }}">
-      </a>
-    </div>
-  </header>
-
   <!-- Search Container -->
-  <div class="search-container w-full max-w-3xl max-w-[1000px] mx-auto text-center mt-[150px] p-5 bg-[#F6F8FA] border border-[#E2EBF2] min-h-[auto] mb-32 flex flex-col justify-start">
+  <div class="search-container w-full max-w-3xl max-w-[1000px] mx-auto text-center mt-[150px] p-5 bg-[#F6F8FA] border border-[#E2EBF2] min-h-[auto] mb-32 flex flex-col justify-start data-lang="{{ lang | default('ko') }}">
     <h1 class="faq-search-title mb-2 mt-8">검색 결과</h1>
     <div id="results" class="search-results w-max-lg w-full mx-auto p-4"></div>
     <!-- Search Again Bar -->
@@ -114,9 +108,9 @@ permalink: "/search.ko.html"
     function performSearch() {
       const query = document.getElementById("searchAgainInput").value.trim();
       if (query) {
-        window.location.href = `search.html?query=${query}`;
+        window.location.href = `search.ko.html?query=${query}`;
       }
     }
 
     searchFAQs();
-  </script>
+  </script>s

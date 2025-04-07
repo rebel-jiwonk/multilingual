@@ -1,22 +1,23 @@
 ---
 layout: base.njk
-title: Search Result | Customer Support
+title: Search Results | Customer Support
+lang: "en"
 body_class: "page-landing"
 permalink: "/search.en.html"
 ---
   <!-- Search Container -->
-  <div class="search-container w-full max-w-3xl max-w-[1000px] mx-auto text-center mt-[150px] p-5 bg-[#F6F8FA] border border-[#E2EBF2] min-h-[auto] mb-32 flex flex-col justify-start data-lang="{{ lang | default('ko') }}">
-    <h1 class="faq-search-title mb-2 mt-8">검색 결과</h1>
+  <div class="search-container w-full max-w-3xl max-w-[1000px] mx-auto text-center mt-[150px] p-5 bg-[#F6F8FA] border border-[#E2EBF2] min-h-[auto] mb-32 flex flex-col justify-start">
+    <h1 class="faq-search-title mb-2 mt-8">Search Results</h1>
     <div id="results" class="search-results w-max-lg w-full mx-auto p-4"></div>
     <!-- Search Again Bar -->
     <div class="faq-search-box flex justify-center items-center space-x-2 min-w-[300px] px-4 gap-2 mt-5">
       <input type="text" 
-             placeholder="검색어를 입력하세요" 
+             placeholder="Search a keyword" 
              class="faq-search-input px-4 py-3 border border-gray-400 text-center focus:outline-none" 
              id="searchAgainInput"
       >
       <!-- Search Button -->
-      <button class="faq-search-button [#23292F] text-[#EFF2F5] hover:bg-[#808A96] hover:text-[#F6F8FA] px-6 h-[48px] transition-all" onclick="performSearch()">검색</button>
+      <button class="faq-search-button [#23292F] text-[#EFF2F5] hover:bg-[#808A96] hover:text-[#F6F8FA] px-6 h-[48px] transition-all" onclick="performSearch()">Search</button>
     </div>
   </div>
 
@@ -59,11 +60,11 @@ permalink: "/search.en.html"
       const searchTitle = document.querySelector(".faq-search-title");
 
       if (query) {
-        searchTitle.innerHTML = `"<span class="text-black-400">${query}</span>"검색 결과`;
+        searchTitle.innerHTML = `Search results for "<span class="text-black-400">${query}</span>"`;
       }
 
       if (!query) {
-        resultsContainer.innerHTML = `<p class='no-results'>⚠️ 검색 내용을 입력해주세요.</p>`;
+        resultsContainer.innerHTML = `<p class='no-results'>⚠️ Type a keyword.</p>`;
         return;
       }
 
@@ -89,7 +90,7 @@ permalink: "/search.en.html"
         );
 
         resultsContainer.innerHTML = filteredResults.length === 0 
-          ? `<p class='no-results'>"<span class="text-red-500">${query}</span>" 검색 결과가 없습니다.</p>` 
+          ? `<p class='no-results'>No results found for "<span class="text-red-500">${query}</span>".</p>` 
           : filteredResults.map(faq => `
               <div class="faq-search-result">
                 <div class="faq-question" onclick="toggleFaq(this)">
@@ -100,16 +101,16 @@ permalink: "/search.en.html"
               </div>
             `).join("");
       } catch (error) {
-        resultsContainer.innerHTML = `<p class='no-results text-red-500'>FAQ 데이터를 불러오는 중 오류가 발생했습니다.</p>`;
+        resultsContainer.innerHTML = `<p class='no-results text-red-500'>An error occurred.</p>`;
       }
     }
 
     function performSearch() {
       const query = document.getElementById("searchAgainInput").value.trim();
       if (query) {
-        window.location.href = `search.html?query=${query}`;
+        window.location.href = `search.en.html?query=${query}`;
       }
     }
 
     searchFAQs();
-  </script>s
+  </script>

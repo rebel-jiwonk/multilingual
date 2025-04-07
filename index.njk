@@ -43,7 +43,7 @@ permalink: "/index.html"
 
           try {
             const lang = document.documentElement.lang || 'ko';
-            const response = await fetch(`/faq/faq.${lang}.json`);
+            const response = await fetch(`/faq.${lang}.json`);
             const faqData = await response.json();
             let matches = [];
 
@@ -67,7 +67,9 @@ permalink: "/index.html"
             if (matches.length === 0) {
               this.searchResults = `❌ <span class='text-s text-red-500'>${this.searchQuery} 검색 결과를 찾을 수 없습니다. </span>`;
             } else {
-              window.location.href = `search.html?query=${encodeURIComponent(query)}`;
+              const lang = document.documentElement.lang || 'ko';
+              const searchPage = lang === 'ko' ? '/search.ko.html' : '/search.en.html';
+              window.location.href = `${searchPage}?query=${encodeURIComponent(query)}`;
             }
 
           } catch (error) {

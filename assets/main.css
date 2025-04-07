@@ -37,18 +37,16 @@
 /* Clean header layout */
 .header {
   position: absolute;
-  top: 1.5rem;
+  top: 0.5rem;
   left: 0;
   right: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-left: -3rem;
   padding: 1.5rem 2rem;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
   z-index: 50;
 }
 
@@ -59,7 +57,7 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  margin-right: -18rem;
+  margin-right: -37rem;
 }
 
 /* Logo reset */
@@ -67,7 +65,6 @@
   height: 28px;
   width: auto;
   display: block;
-  margin-left: -18rem;
 }
 
 .main-logo {
@@ -146,10 +143,19 @@ body.page-landing {
   font-size: 1.1rem;
   font-weight: 300;
   border-radius: 0px;
+  border: 1px solid #1B1F23;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   flex-shrink: 0; /* Prevent shrinking */
   white-space: nowrap; /* Ensure text stays on one line */
+}
+
+.landing-search-button:hover {
+  background-color: #E2EBF2;
+  color: #3B434B;
+  font-weight: 600;
+  border: 1px solid #1B1F23;
+  cursor: pointer;
 }
 
 .landing-search-form {
@@ -190,12 +196,14 @@ body.page-landing {
   background: #3B434B;
   color: #F6F8FA;
   min-width: 140px; /* Consistent width for symmetry */
+  border: 1px solid #1B1F23;
   text-align: center;
 }
 
 .landing-btn-primary:hover {
   background: #BBC4CF;
   color: #3B434B;
+  border: 1px solid #1B1F23;
 }
 
 .landing-search-bar {
@@ -385,7 +393,7 @@ body.page-landing {
     
     .faq-search-input {
       padding: 0.5rem 1rem;
-      border: 1px solid #808A96;
+      border: 1px solid #1B1F23;
       text-align: center;
       width: 190px;
     }
@@ -396,10 +404,14 @@ body.page-landing {
       padding: 0.5rem 1.25rem;
       cursor: pointer;
       transition: all 0.3s ease;
+      border: 1px solid #1B1F23;          /* ✅ Remove default border */
+      outline: none;              /* ✅ Remove focus outline */
+      box-shadow: none;      
     }
     .faq-search-button:hover {
       background: #E2EBF2;
       color: #808A96;
+      border: 1px solid #1B1F23;
     }
     
     .faq-category.active {
@@ -441,6 +453,20 @@ body.page-landing {
       overflow-y: auto;
       max-height: 200px;
     }
+
+      .toggle-btn {
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 0;
+        font-size: 1.25rem;
+        color: #3B434B;
+        cursor: pointer;
+        transition: color 0.2s ease-in-out;
+      }
+    
+
+
    .faq-prose h1,
    .faq-prose h2,
    .faq-prose p,
@@ -590,11 +616,10 @@ body.page-landing {
   padding: 1rem;
 }
 
-.search-result {
+.faq-search-result {
   background: #F6F8FA;
   padding: 0.5rem 0.875rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 /* === FAQ Question/Answer === */
@@ -607,6 +632,7 @@ body.page-landing {
   align-items: center;
   cursor: pointer;
   transition: background 0.3s;
+  gap: 0.5rem;
 }
 
 .faq-question:hover,
