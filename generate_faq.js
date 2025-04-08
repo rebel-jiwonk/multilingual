@@ -67,33 +67,38 @@ faqFiles.forEach(file => {
   const body = marked(parsed.content.trim());
   const lang = detectLangFromFileName(file);
 
-  faqCategories.forEach(cat => {
-    cat.faqs = cat.faqs.filter(faq => faq.fileName !== file);
+  // 🆕 Per-language title deduplication
+const seenTitlesByLang = {
+  ko: new Set(),
+  en: new Set(),
+};
+
+categories.forEach(category => {
+  let existingCategory = faqCategories.find(c => c.category === category && c.lang === lang);
+
+  if (!existingCategory) {
+    existingCategory = { category, lang, faqs: [] };
+    faqCategories.push(existingCategory);
+  }
+
+  // Skip if this title already exists in the current language
+  if (seenTitlesByLang[lang].has(title.trim())) {
+    return;
+  }
+
+  seenTitlesByLang[lang].add(title.trim());
+
+  existingCategory.faqs.push({
+    title,
+    slug: title.toLowerCase().replace(/\s+/g, "-"),
+    tags,
+    body,
+    author: defaultAuthor,
+    createdDate: today,
+    fileName: file,
+    order: (parsed.data.primaryCategory === category) ? parsed.data.order || 9999 : 9999
   });
-
-  categories.forEach(category => {
-    let existingCategory = faqCategories.find(c => c.category === category && c.lang === lang);
-
-    if (!existingCategory) {
-      existingCategory = { category, lang, faqs: [] };
-      faqCategories.push(existingCategory);
-    }
-
-    const alreadyExists = existingCategory.faqs.some(f => f.fileName === file);
-
-    if (!alreadyExists) {
-      existingCategory.faqs.push({
-        title,
-        slug: title.toLowerCase().replace(/\s+/g, "-"),
-        tags,
-        body,
-        author: defaultAuthor,
-        createdDate: today,
-        fileName: file,
-        order: (parsed.data.primaryCategory === category) ? parsed.data.order || 9999 : 9999
-      });
-    }
-  });
+});
 
   updated = true;
 });

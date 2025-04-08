@@ -12,7 +12,7 @@
         ],
         "body": "<p>RBLN SDK supports models based on PyTorch and TensorFlow and is also compatible with the Hugging Face Transformers/Diffusers libraries.</p>\n<p>We are continuously improving compatibility with major AI frameworks through regular updates.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_7.en.md",
         "order": "1"
       },
@@ -25,7 +25,7 @@
         ],
         "body": "<p>In most cases, you can use the RBLN SDK with minimal code changes.</p>\n<ul>\n<li>For officially supported Model Zoo models, you can use the provided example code right away.</li>\n<li>Other models can also be compiled by referring to the <a href=\"https://github.com/rebellions-sw/rbln-model-zoo\" class=\"underline\" target=\"_blank\">Model Zoo code</a>.</li>\n</ul>\n<p>Check the list of supported operations in advance:</p>\n<ul>\n<li><a href=\"https://docs.rbln.ai/en/misc/supported_ops_pytorch.html\" class=\"underline\" target=\"_blank\">PyTorch</a>  </li>\n<li><a href=\"https://docs.rbln.ai/en/misc/supported_ops_tensorflow.html\" class=\"underline\" target=\"_blank\">TensorFlow</a></li>\n</ul>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_2.en.md",
         "order": "2"
       },
@@ -39,7 +39,7 @@
         ],
         "body": "<p>To maximize the performance of transformer-based models, consider the following:</p>\n<ul>\n<li>Set the <code>rbln_tensor_parallel_size</code> value appropriately to utilize NPU parallelism</li>\n<li>Tune the input sequence length and batch size</li>\n</ul>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_31.en.md",
         "order": "3"
       },
@@ -53,7 +53,7 @@
         ],
         "body": "<p>The RBLN SDK provides a C/C++-bound runtime for applications where Python runtime is unavailable or extremely low latency is required.\nPlease refer to the <a href=\"https://docs.rbln.ai/en/software/api/language_binding/c/installation.html\" class=\"underline\" target=\"_blank\">C/C++ guide</a> for more information.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_32.en.md",
         "order": "4"
       },
@@ -67,7 +67,7 @@
         ],
         "body": "<p>The RBLN SDK and Compiler are regularly updated to maintain API compatibility with the latest versions of major frameworks.\nFor details, please refer to the respective <a href=\"https://docs.rbln.ai/supports/release_note.html\" class=\"underline\" target=\"_blank\">Release Notes</a>.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_35.en.md",
         "order": "5"
       },
@@ -81,35 +81,9 @@
         ],
         "body": "<p>RBLN SDK offers high compatibility with PyTorch-based models.</p>\n<p>• <code>torch.compile()</code> Support: Fully compatible with PyTorch 2.0’s <code>torch.compile()</code> feature, and supports models compiled using TorchDynamo and TorchInductor backends.</p>\n<p>• Extensive Operator Support: The RBLN Compiler supports most PyTorch operators. You can check the full list in <a href=\"https://docs.rbln.ai/misc/supported_ops_pytorch.html\" class=\"underline\" target=\"_blank\">Supported Ops</a>. It also includes major operators for Vision, NLP, and Audio, making it suitable for a wide range of deep learning models.</p>\n<p>• PyTorch Model Zoo Compatibility: Popular models such as ResNet, YOLO, LLaMA, and BERT are supported. See the <a href=\"https://docs.rbln.ai/misc/pytorch_modelzoo.html\" class=\"underline\" target=\"_blank\">PyTorch Model Zoo</a> page for more details.</p>\n<p>• JIT/Scripted Model Support: Models converted using TorchScript can also be processed by the RBLN Compiler.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_36.en.md",
         "order": "6"
-      },
-      {
-        "title": "How do I install RBLN Driver?",
-        "slug": "how-do-i-install-rbln-driver?",
-        "tags": [
-          "rbln driver",
-          "installation"
-        ],
-        "body": "<p>The RBLN Driver can be installed using the provided <code>deb</code> or <code>rpm</code> installation files and requires root privileges. During installation, you must ensure that the kernel version is compatible with the driver.</p>\n<p>In most cases, we provide an environment with the Driver pre-installed. If installation is required, please refer to the <a href=\"https://docs.rbln.ai/en/getting_started/installation_guide.html?h=driver#installation\" class=\"underline\" target=\"_blank\">Installation Guide</a>.</p>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_8.en.md",
-        "order": 9999
-      },
-      {
-        "title": "How do I install RBLN SDK?",
-        "slug": "how-do-i-install-rbln-sdk?",
-        "tags": [
-          "rbln sdk",
-          "installation"
-        ],
-        "body": "<p>The RBLN SDK can be easily installed in a Python environment as follows:</p>\n<pre><code>pip3 install --extra-index-url https://pypi.rbln.ai/simple rebel-compiler==&lt;latest-version&gt; optimum-rbln==&lt;latest-version&gt; vllm-rbln==&lt;latest-version&gt;\n</code></pre>\n<p>To check the latest package versions, refer to the <a href=\"https://docs.rbln.ai/supports/release_note.html\" class=\"underline\" target=\"_blank\">Release Notes</a>. Depending on your environment, additional Python package dependencies may be required.</p>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_9.en.md",
-        "order": 9999
       }
     ]
   },
@@ -126,7 +100,7 @@
         ],
         "body": "<p>The RBLN Driver can be installed using the provided <code>deb</code> or <code>rpm</code> installation files and requires root privileges. During installation, you must ensure that the kernel version is compatible with the driver.</p>\n<p>In most cases, we provide an environment with the Driver pre-installed. If installation is required, please refer to the <a href=\"https://docs.rbln.ai/en/getting_started/installation_guide.html?h=driver#installation\" class=\"underline\" target=\"_blank\">Installation Guide</a>.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_8.en.md",
         "order": "2"
       },
@@ -139,7 +113,7 @@
         ],
         "body": "<p>The RBLN SDK can be easily installed in a Python environment as follows:</p>\n<pre><code>pip3 install --extra-index-url https://pypi.rbln.ai/simple rebel-compiler==&lt;latest-version&gt; optimum-rbln==&lt;latest-version&gt; vllm-rbln==&lt;latest-version&gt;\n</code></pre>\n<p>To check the latest package versions, refer to the <a href=\"https://docs.rbln.ai/supports/release_note.html\" class=\"underline\" target=\"_blank\">Release Notes</a>. Depending on your environment, additional Python package dependencies may be required.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_9.en.md",
         "order": "2"
       },
@@ -152,7 +126,7 @@
         ],
         "body": "<p>Python 3.9 or higher is recommended, and there are key package dependencies such as numpy, torch, and onnx.</p>\n<p>Please refer to the <a href=\"https://docs.rbln.ai/supports/version_matrix.html\" class=\"underline\" target=\"_blank\">Support Matrix</a> page for the supported OS and Python versions.\nRequired packages may vary by model, so refer to the <code>requirements.txt</code> file included in the <a href=\"https://github.com/rebellions-sw/rbln-model-zoo\" class=\"underline\" target=\"_blank\">Model Zoo code</a> for details.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_6.en.md",
         "order": "4"
       },
@@ -165,37 +139,9 @@
         ],
         "body": "<p>Currently, RBLN SDK only supports Linux. Windows support will be determined based on our technical roadmap.</p>\n<p>More details on the supported OS and Python version can be found on the <a href=\"https://docs.rbln.ai/supports/version_matrix.html\" class=\"underline\" target=\"_blank\">Support Matrix</a> page.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_5.en.md",
         "order": "5"
-      },
-      {
-        "title": "I get errors after driver/compiler updates.",
-        "slug": "i-get-errors-after-driver/compiler-updates.",
-        "tags": [
-          "upgrade",
-          "error",
-          "version"
-        ],
-        "body": "<p>Issues may arise due to version mismatches between the driver and compiler.</p>\n<ul>\n<li><p>Refer to the <a href=\"https://docs.rbln.ai/supports/release_note.html\" class=\"underline\" target=\"_blank\">Release Notes</a> of the RBLN SDK to ensure that all components are installed with compatible versions.</p>\n</li>\n<li><p>After aligning all libraries to their compatible versions, try recompiling the model.</p>\n</li>\n</ul>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_30.en.md",
-        "order": 9999
-      },
-      {
-        "title": "How can I improve the performance of transformer-based models like Llama or BERT?",
-        "slug": "how-can-i-improve-the-performance-of-transformer-based-models-like-llama-or-bert?",
-        "tags": [
-          "transformer",
-          "llama",
-          "bert"
-        ],
-        "body": "<p>To maximize the performance of transformer-based models, consider the following:</p>\n<ul>\n<li>Set the <code>rbln_tensor_parallel_size</code> value appropriately to utilize NPU parallelism</li>\n<li>Tune the input sequence length and batch size</li>\n</ul>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_31.en.md",
-        "order": 9999
       }
     ]
   },
@@ -212,7 +158,7 @@
         ],
         "body": "<p>The RBLN SDK supports distributed inference based on tensor parallelism, called RSD (Rebellions Scalable Design).\nPlease first check the <a href=\"https://docs.rbln.ai/en/software/optimum/optimum_rbln.html#multi-npu-rsd\" class=\"underline\" target=\"_blank\">Model List</a> that support multi-device, and refer to the provided <a href=\"https://docs.rbln.ai/en/software/optimum/tutorial/llama3-8B.html#npu\" class=\"underline\" target=\"_blank\">example</a> for compilation instructions.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_11.en.md",
         "order": "1"
       },
@@ -226,7 +172,7 @@
         ],
         "body": "<p>You can analyze metrics such as latency, throughput, and memory usage using the <a href=\"https://docs.rbln.ai/en/software/profiler/overview.html\" class=\"underline\" target=\"_blank\">Profiler</a> included in the SDK.</p>\n<p>With <a href=\"https://docs.rbln.ai/en/software/system_management/device_management.html\" class=\"underline\" target=\"_blank\"><code>rbln-stat</code></a>, you can also monitor power consumption and utilization.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/\bfaq_12.en.md",
         "order": "2"
       },
@@ -238,7 +184,7 @@
         ],
         "body": "<p>The optimal batch size may vary depending on the type of NPU used, server configuration, and service requirements.\nWe recommend using the Profiler tool and conducting various experiments for fine-tuning.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_10.en.md",
         "order": "3"
       },
@@ -252,7 +198,7 @@
         ],
         "body": "<p>RBLN SDK에는 성능 병목 분석을 위한 RBLN 프로파일러(Profiler)가 포함되어 있으며, 실행 시간, 메모리 사용량, 연산 의존성 등의 주요 지표를 수집합니다.</p>\n<ul>\n<li><code>.pb</code> 형식의 트레이스 파일은 Perfetto로 시각화할 수 있습니다.</li>\n<li>병목 지점, 연산 간 의존성, 레이어별 처리시간(latency)등을 분석해 최적화 방향을 제시합니다.</li>\n</ul>\n<p>자세한 사용법은 <a href=\"https://docs.rbln.ai/ko/software/profiler/overview.html\" class=\"underline\" target=\"_blank\">프로파일러(Profiler) 가이드</a>를 참고하세요.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_13.en.md",
         "order": "3"
       },
@@ -265,7 +211,7 @@
         ],
         "body": "<p>네, Mixed Precision 모델도 지원합니다. 다만 최적화 수준은 모델 구조에 따라 달라질 수 있으며, 별도 가이드라인 제공이 필요합니다. 자세한 내용은 <a href=\"https://discuss.rebellions.ai\" class=\"underline\" target=\"_blank\">포럼</a>에 문의해주세요.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_16.en.md",
         "order": "5"
       },
@@ -279,7 +225,7 @@
         ],
         "body": "<p>To process video files, you can use libraries like OpenCV (cv2) to extract each frame from an <code>.mp4</code> file as an image, and then feed those frames into the model for inference.</p>\n<p>For example, when using an object detection model like YOLOX, the typical procedure is as follows:</p>\n<p>1.Load the video file using cv2.VideoCapture\n2.Extract frames one by one\n3.Preprocess each frame to match the model’s input format\n4.Perform object detection using the model\n5.Visualize the results and either save them or display them in real time</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_14.en.md",
         "order": "6"
       },
@@ -292,49 +238,8 @@
         ],
         "body": "<p>RBLN SDK supports Bfloat16, IEEE754, Custom FP16.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_17.en.md",
-        "order": 9999
-      },
-      {
-        "title": "Which serving frameworks do you support?",
-        "slug": "which-serving-frameworks-do-you-support?",
-        "tags": [
-          "cloud",
-          "kubernetes",
-          "serving framework"
-        ],
-        "body": "<p>RBLN SDK is compatible with <a href=\"https://docs.rbln.ai/en/software/model_serving/vllm_support/vllm-rbln.html\" class=\"underline\" target=\"_blank\">vLLM</a>, Nvidia Triton Inference Server, and TorchServe. 컨Container-based deployment also supports integration with <a href=\"https://github.com/rebellions-sw/rebel-k8s-device-plugin\" class=\"underline\" target=\"_blank\">Kubernetes</a>.</p>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_26.en.md",
-        "order": 9999
-      },
-      {
-        "title": "CPU usage is too high during model inference.",
-        "slug": "cpu-usage-is-too-high-during-model-inference.",
-        "tags": [
-          "cpu",
-          "inference"
-        ],
-        "body": "<p>You can limit the number of CPU threads used during inference by setting the <code>RBLN_NUM_THREADS</code> environment variable. Specifying an appropriate number of threads can reduce CPU load and help stabilize performance.</p>\n<p>Pleae refer to this <a href=\"https://docs.rbln.ai/en/software/api/troubleshoot.html#1\" class=\"underline\" target=\"_blank\">document</a> for more details.</p>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_29.en.md",
-        "order": 9999
-      },
-      {
-        "title": "Do you support Kubernetes?",
-        "slug": "do-you-support-kubernetes?",
-        "tags": [
-          "cloud",
-          "kubernetes",
-          "serving framework"
-        ],
-        "body": "<p>Yes. You can use Rebellions AI processor resources via the <a href=\"https://github.com/rebellions-sw/rebel-k8s-device-plugin\" class=\"underline\" target=\"_blank\">Kubernetes Plugin</a>.</p>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_37.en.md",
         "order": 9999
       }
     ]
@@ -353,7 +258,7 @@
         ],
         "body": "<p>Both are AI inference NPUs developed by Rebellions, but REBEL is a next-generation product designed with a chiplet-based architecture. A detailed comparison chart is available on the <a href=\"https://rebellions.ai/rebellions-product/rbln-ca25/\" class=\"underline\" target=\"_blank\"> product page</a>.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_20.en.md",
         "order": "1"
       },
@@ -366,22 +271,9 @@
         ],
         "body": "<p>The current RBLN SDK is designed for inference-only use. Plans for training support will be announced through the roadmap once they are finalized.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_19.en.md",
         "order": "2"
-      },
-      {
-        "title": "Which FP16 formats does RBLN SDK support?",
-        "slug": "which-fp16-formats-does-rbln-sdk-support?",
-        "tags": [
-          "fp16",
-          "optimization"
-        ],
-        "body": "<p>RBLN SDK supports Bfloat16, IEEE754, Custom FP16.</p>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_17.en.md",
-        "order": "3"
       },
       {
         "title": "Do you support Kubernetes?",
@@ -393,7 +285,7 @@
         ],
         "body": "<p>Yes. You can use Rebellions AI processor resources via the <a href=\"https://github.com/rebellions-sw/rebel-k8s-device-plugin\" class=\"underline\" target=\"_blank\">Kubernetes Plugin</a>.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_37.en.md",
         "order": "4"
       },
@@ -407,7 +299,7 @@
         ],
         "body": "<p>RBLN SDK is compatible with <a href=\"https://docs.rbln.ai/en/software/model_serving/vllm_support/vllm-rbln.html\" class=\"underline\" target=\"_blank\">vLLM</a>, Nvidia Triton Inference Server, and TorchServe. 컨Container-based deployment also supports integration with <a href=\"https://github.com/rebellions-sw/rebel-k8s-device-plugin\" class=\"underline\" target=\"_blank\">Kubernetes</a>.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_26.en.md",
         "order": "5"
       },
@@ -420,35 +312,9 @@
         ],
         "body": "<p>While both NPUs (Neural Processing Units) and GPUs (Graphics Processing Units) perform parallel computations, they differ in their optimized computation methods and intended use cases.</p>\n<p>GPUs were originally designed for graphics rendering but have been widely adopted for AI training and high-performance computing (HPC) due to their large-scale parallel processing capabilities. They typically use FP32/FP16 operations and support various types of computation through CUDA cores and Tensor Cores.</p>\n<p>NPUs are processors specialized for AI and deep learning, designed to perform efficient computations at low power. They are optimized for low-bit operations such as INT8 and FP16 and include dedicated hardware architectures that accelerate neural network computations.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_21.en.md",
         "order": "6"
-      },
-      {
-        "title": "Can I run inference on multiple devices?",
-        "slug": "can-i-run-inference-on-multiple-devices?",
-        "tags": [
-          "npu",
-          "multidevice"
-        ],
-        "body": "<p>The RBLN SDK supports distributed inference based on tensor parallelism, called RSD (Rebellions Scalable Design).\nPlease first check the <a href=\"https://docs.rbln.ai/en/software/optimum/optimum_rbln.html#multi-npu-rsd\" class=\"underline\" target=\"_blank\">Model List</a> that support multi-device, and refer to the provided <a href=\"https://docs.rbln.ai/en/software/optimum/tutorial/llama3-8B.html#npu\" class=\"underline\" target=\"_blank\">example</a> for compilation instructions.</p>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_11.en.md",
-        "order": 9999
-      },
-      {
-        "title": "Do you support mixed precision models?",
-        "slug": "do-you-support-mixed-precision-models?",
-        "tags": [
-          "mixed precisions",
-          "optimization"
-        ],
-        "body": "<p>네, Mixed Precision 모델도 지원합니다. 다만 최적화 수준은 모델 구조에 따라 달라질 수 있으며, 별도 가이드라인 제공이 필요합니다. 자세한 내용은 <a href=\"https://discuss.rebellions.ai\" class=\"underline\" target=\"_blank\">포럼</a>에 문의해주세요.</p>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_16.en.md",
-        "order": 9999
       },
       {
         "title": "How can I fine-tune models or optimize inference?",
@@ -459,89 +325,8 @@
         ],
         "body": "<p>Rebellions devices are designed exclusively for inference, and fine-tuning is not currently supported.</p>\n<p>To maximize inference performance, we recommend the following optimization strategies:</p>\n<ul>\n<li><p>Use Mixed Precision and Quantization: Improve memory efficiency and compute speed by using FP16 or INT8 quantized models.</p>\n</li>\n<li><p>Adjust Batch Size: Find the optimal batch size based on model characteristics and input data to increase throughput.</p>\n</li>\n<li><p>Refactor Model Architecture: Simplify the computation graph through layer fusion and removal of redundant operations to boost performance.</p>\n</li>\n<li><p>Double Buffering: Utilize double buffering in <code>AsyncRuntime</code> to improve execution efficiency.</p>\n</li>\n<li><p>Apply Continuous Batching for LLM Serving: For large language model (LLM) serving, maximize hardware utilization by applying continuous batching techniques using <code>vllm-rbln</code>.</p>\n</li>\n</ul>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_22.en.md",
-        "order": 9999
-      },
-      {
-        "title": "Does RBLN Runtime API support C/C++?",
-        "slug": "does-rbln-runtime-api-support-c/c++?",
-        "tags": [
-          "c",
-          "cpp",
-          "compatibility"
-        ],
-        "body": "<p>The RBLN SDK provides a C/C++-bound runtime for applications where Python runtime is unavailable or extremely low latency is required.\nPlease refer to the <a href=\"https://docs.rbln.ai/en/software/api/language_binding/c/installation.html\" class=\"underline\" target=\"_blank\">C/C++ guide</a> for more information.</p>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_32.en.md",
-        "order": 9999
-      },
-      {
-        "title": "How do I ensure version compatibility with AI frameworks?",
-        "slug": "how-do-i-ensure-version-compatibility-with-ai-frameworks?",
-        "tags": [
-          "framework",
-          "compatibility",
-          "api"
-        ],
-        "body": "<p>The RBLN SDK and Compiler are regularly updated to maintain API compatibility with the latest versions of major frameworks.\nFor details, please refer to the respective <a href=\"https://docs.rbln.ai/supports/release_note.html\" class=\"underline\" target=\"_blank\">Release Notes</a>.</p>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_35.en.md",
-        "order": 9999
-      },
-      {
-        "title": "Is RBLN SDK compatible with PyTorch?",
-        "slug": "is-rbln-sdk-compatible-with-pytorch?",
-        "tags": [
-          "pytorch",
-          "compatibility",
-          "features"
-        ],
-        "body": "<p>RBLN SDK offers high compatibility with PyTorch-based models.</p>\n<p>• <code>torch.compile()</code> Support: Fully compatible with PyTorch 2.0’s <code>torch.compile()</code> feature, and supports models compiled using TorchDynamo and TorchInductor backends.</p>\n<p>• Extensive Operator Support: The RBLN Compiler supports most PyTorch operators. You can check the full list in <a href=\"https://docs.rbln.ai/misc/supported_ops_pytorch.html\" class=\"underline\" target=\"_blank\">Supported Ops</a>. It also includes major operators for Vision, NLP, and Audio, making it suitable for a wide range of deep learning models.</p>\n<p>• PyTorch Model Zoo Compatibility: Popular models such as ResNet, YOLO, LLaMA, and BERT are supported. See the <a href=\"https://docs.rbln.ai/misc/pytorch_modelzoo.html\" class=\"underline\" target=\"_blank\">PyTorch Model Zoo</a> page for more details.</p>\n<p>• JIT/Scripted Model Support: Models converted using TorchScript can also be processed by the RBLN Compiler.</p>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_36.en.md",
-        "order": 9999
-      },
-      {
-        "title": "Does RBLN SDK support Windows?",
-        "slug": "does-rbln-sdk-support-windows?",
-        "tags": [
-          "windows",
-          "linux"
-        ],
-        "body": "<p>Currently, RBLN SDK only supports Linux. Windows support will be determined based on our technical roadmap.</p>\n<p>More details on the supported OS and Python version can be found on the <a href=\"https://docs.rbln.ai/supports/version_matrix.html\" class=\"underline\" target=\"_blank\">Support Matrix</a> page.</p>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_5.en.md",
-        "order": 9999
-      },
-      {
-        "title": "What is the required Python version and are there additional dependencies?",
-        "slug": "what-is-the-required-python-version-and-are-there-additional-dependencies?",
-        "tags": [
-          "python",
-          "dependencies"
-        ],
-        "body": "<p>Python 3.9 or higher is recommended, and there are key package dependencies such as numpy, torch, and onnx.</p>\n<p>Please refer to the <a href=\"https://docs.rbln.ai/supports/version_matrix.html\" class=\"underline\" target=\"_blank\">Support Matrix</a> page for the supported OS and Python versions.\nRequired packages may vary by model, so refer to the <code>requirements.txt</code> file included in the <a href=\"https://github.com/rebellions-sw/rbln-model-zoo\" class=\"underline\" target=\"_blank\">Model Zoo code</a> for details.</p>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_6.en.md",
-        "order": 9999
-      },
-      {
-        "title": "Which AI frameworks and libraries does RBLN SDK support?",
-        "slug": "which-ai-frameworks-and-libraries-does-rbln-sdk-support?",
-        "tags": [
-          "frameworks",
-          "libraries"
-        ],
-        "body": "<p>RBLN SDK supports models based on PyTorch and TensorFlow and is also compatible with the Hugging Face Transformers/Diffusers libraries.</p>\n<p>We are continuously improving compatibility with major AI frameworks through regular updates.</p>\n",
-        "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
-        "fileName": "en/faq_7.en.md",
         "order": 9999
       }
     ]
@@ -559,7 +344,7 @@
         ],
         "body": "<p>You can ask questions or discuss technical issues on <a href=\"https://discuss.rebellions.ai/\" class=\"underline\" target=\"_blank\">Rebellions Dev Forum</a>. You can directly reach out to us <a href=\"mailto:client_support@rebellions.ai\" class=\"underline\" target=\"_blank\">here</a>.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_23.en.md",
         "order": "1"
       },
@@ -573,7 +358,7 @@
         ],
         "body": "<p>The SDK is updated approximately every month, and the driver is updated every three months, although the schedule is subject to change.\nFor detailed information, please refer to the latest <a href=\"https://docs.rbln.ai/supports/release_note.html\" class=\"underline\" target=\"_blank\">Release Notes</a>.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_24.en.md",
         "order": "2"
       },
@@ -586,7 +371,7 @@
         ],
         "body": "<p>Currently, for officially supported models listed in the <a href=\"https://github.com/rebellions-sw/rbln-model-zoo\" class=\"underline\" target=\"_blank\">RBLN Model Zoo</a>, you can use the provided compilation and inference example code.</p>\n<p>If you’re using a modified model or a model not included in the Model Zoo, technical support may be limited, and compilation may fail.\nFirst, check the <a href=\"https://docs.rbln.ai/en/misc/error_code.html\" class=\"underline\" target=\"_blank\">error code</a> to identify the cause. If further assistance is required, please reach out via the <a href=\"discuss.rebellions.ai\" class=\"underline\" target=\"_blank\">Rebellions Dev Forum</a>.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_27.en.md",
         "order": "3"
       },
@@ -599,7 +384,7 @@
         ],
         "body": "<p>Please check the following items:</p>\n<ul>\n<li><p>Memory Usage: If the system runs out of memory during compilation, the process may fail.</p>\n</li>\n<li><p>NPU Configuration: Ensure that the value of <code>rbln_tensor_parallel_size</code> is not greater than the actual number of devices installed in your system. You can verify the number of devices by running the <code>rbln-stat</code> command in your terminal.</p>\n</li>\n<li><p>Docker Environment: Refer to the <a href=\"https://docs.rbln.ai/en/software/system_management/docker.html\" class=\"underline\" target=\"_blank\">Docker Guide</a> for more details.</p>\n</li>\n</ul>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_28.en.md",
         "order": "4"
       },
@@ -612,7 +397,7 @@
         ],
         "body": "<p>You can limit the number of CPU threads used during inference by setting the <code>RBLN_NUM_THREADS</code> environment variable. Specifying an appropriate number of threads can reduce CPU load and help stabilize performance.</p>\n<p>Pleae refer to this <a href=\"https://docs.rbln.ai/en/software/api/troubleshoot.html#1\" class=\"underline\" target=\"_blank\">document</a> for more details.</p>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_29.en.md",
         "order": "5"
       },
@@ -626,7 +411,7 @@
         ],
         "body": "<p>Issues may arise due to version mismatches between the driver and compiler.</p>\n<ul>\n<li><p>Refer to the <a href=\"https://docs.rbln.ai/supports/release_note.html\" class=\"underline\" target=\"_blank\">Release Notes</a> of the RBLN SDK to ensure that all components are installed with compatible versions.</p>\n</li>\n<li><p>After aligning all libraries to their compatible versions, try recompiling the model.</p>\n</li>\n</ul>\n",
         "author": "Kwak Jiwon",
-        "createdDate": "2025-04-07",
+        "createdDate": "2025-04-08",
         "fileName": "en/faq_30.en.md",
         "order": "6"
       }
