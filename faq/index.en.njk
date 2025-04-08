@@ -5,17 +5,17 @@ title: FAQ | Customer Support
 body_class: "page-landing"
 permalink: "/faq/index.en.html"
 ---
-<div class="faq-container flex flex-row w-full max-w-[1200px] mb-[100px] mt-[140px] p-5 bg-[#F6F8FA] min-h-[600px] items-start gap-8" data-lang="{{ lang }}">
+<div class="en-faq-container flex flex-row w-full max-w-[1200px] mb-[100px] mt-[140px] p-5 bg-[#F6F8FA] min-h-[600px] items-start gap-8" data-lang="{{ lang }}">
   <!-- Left Column: Categories -->
-  <div class="faq-sidebar flex flex-col w-[260px] max-w-[260px] justify-start pl-[30px] pr-4">
-    <h2 class="faq-title text-[1.75rem] font-bold p-3 text-center text-[#3B434B]">Frequently Asked Questions</h2>
+  <div class="en-faq-sidebar flex flex-col w-[260px] max-w-[260px] justify-start pl-[30px] pr-4">
+    <h2 class="en-faq-title text-[1.75rem] font-bold p-3 text-center text-[#3B434B]">Frequently Asked Questions</h2>
     <div id="faq-categories" class="faq-category-list flex flex-col gap-2 min-w-[220px] pr-2"></div>
   </div>
 
   <!-- Right Column: FAQ Content -->
-  <div class="faq-main flex flex-col pl-[25px] gap-2 border-[#808A96] overflow-y-auto w-[800px] min-w-[800px] max-w-[800px]">
+  <div class="en-faq-main flex flex-col pl-[25px] gap-2 border-[#808A96] overflow-y-auto w-[800px] min-w-[800px] max-w-[800px]">
     <!-- Search + Contact -->
-    <div class="faq-search-bar text-m font-semibold text-[#3B434B] flex items-center whitespace-nowrap p-[9px] pr-[30px]">
+    <div class="en-faq-search-bar text-m font-semibold text-[#3B434B] flex items-center whitespace-nowrap p-[9px] pr-[30px]">
       <p>
         Can’t find what you’re looking for? 
         <a href="mailto:client_support@rebellions.ai" class="text-gray-800 hover:text-gray-600 underline">Contact us here</a>!
@@ -25,7 +25,7 @@ permalink: "/faq/index.en.html"
         <button onclick="performSearch()" class="faq-search-button bg-[#808A96] text-[#EFF2F5] text-sm hover:bg-[#E2EBF2] hover:text-[#808A96] px-6 h-[44px] transition-all">Search</button>
       </div>
     </div>
-    <div id="faq-content" class="faq-content-list"></div>
+    <div id="faq-content" class="en-faq-content-list"></div>
   </div>
 </div>
 
@@ -56,7 +56,7 @@ permalink: "/faq/index.en.html"
 
     categories.forEach((category, index) => {
       const categoryDiv = document.createElement("div");
-      categoryDiv.className = "faq-category flex items-center justify-center px-5 py-2 text-lg border border-[#808A96] bg-[#EFF2F5] text-[#3B434B] transition-all cursor-pointer hover:bg-[#D9E4ED] hover:text-[#3B434B] hover:border-[#3B434B] active:bg-[#52F756] active:text-[#3B434B]";
+      categoryDiv.className = "en-faq-category flex items-center justify-center px-5 py-2 text-lg border border-[#808A96] bg-[#EFF2F5] text-[#3B434B] transition-all cursor-pointer hover:bg-[#D9E4ED] hover:text-[#3B434B] hover:border-[#3B434B] active:bg-[#52F756] active:text-[#3B434B]";
       categoryDiv.innerText = category.category;
       categoryDiv.onclick = () => showFAQ(category.category, category.faqs);
       categoryContainer.appendChild(categoryDiv);
@@ -77,7 +77,7 @@ permalink: "/faq/index.en.html"
     faqContentContainer.innerHTML = "";
     faqContentContainer.style.display = "flex";
 
-    document.querySelectorAll(".faq-category").forEach(cat => {
+    document.querySelectorAll(".en-faq-category").forEach(cat => {
       cat.classList.remove("active");
       if (cat.innerText === categoryName) cat.classList.add("active");
     });

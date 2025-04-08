@@ -364,6 +364,13 @@ body.page-landing {
       padding: 0;
       overflow-y: auto;
     }
+
+    .en-faq-content-list {
+      font-family: 'Soehne', sans-serif !important;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
     
     .faq-header {
       position: absolute;
@@ -383,8 +390,28 @@ body.page-landing {
       min-height: 600px;
       gap: 2rem;
     }
+
+    .en-faq-container {
+      display: flex;
+      flex-direction: row;
+      max-width: 1200px;
+      width: 100%;
+      margin: 140px auto 100px;
+      padding: 1.25rem;
+      background: #F6F8FA;
+      min-height: 600px;
+      gap: 2rem;
+    }
     
     .faq-sidebar {
+      flex: 0 0 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .en-faq-sidebar {
+      font-family: 'Soehne', sans-serif !important;
       flex: 0 0 260px;
       display: flex;
       flex-direction: column;
@@ -393,6 +420,13 @@ body.page-landing {
     
     .faq-title {
       font-size: 1.75rem;
+      font-weight: bold;
+      text-align: center;
+      color: #3B434B;
+    }
+
+    .en-faq-title {
+      font-size: 1.2rem;
       font-weight: bold;
       text-align: center;
       color: #3B434B;
@@ -427,8 +461,41 @@ body.page-landing {
       background-color: #52F756;
       color: #3B434B;
     }
+
+    .en-faq-category {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.5rem; /* py-2 px-5 */
+      font-size: 1rem;
+      border: 1px solid #808A96;
+      background-color: #EFF2F5;
+      color: #3B434B;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+    
+    .en-faq-category:hover {
+      background-color: #D9E4ED;
+      color: #3B434B;
+      border-color: #3B434B;
+    }
+    
+    .en-faq-category.active {
+      background-color: #52F756;
+      color: #3B434B;
+    }
     
     .faq-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      overflow-y: auto;
+    }
+
+    .en-faq-main {
+      font-family: 'Soehne', sans-serif;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -446,6 +513,14 @@ body.page-landing {
       font-weight: 600;
       color: #3B434B;
       padding: 0.5rem 1rem;
+      gap: 1rem;
+    }
+
+    .en-faq-search-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
       gap: 1rem;
     }
     
