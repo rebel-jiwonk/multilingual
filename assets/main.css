@@ -753,12 +753,26 @@ body.page-landing {
   width: 100%;
   margin-top: 1rem;
   padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .faq-search-result {
   background: #F6F8FA;
   padding: 0.5rem 0.875rem;
-  margin-bottom: 0.5rem;
+}
+
+body.page-search {
+  font-family: 'Pretendard', sans-serif;
+  background: url('/assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  overflow-y: auto;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px; /* Add top padding if you have a fixed header */
 }
 
 /* === FAQ Question/Answer === */
