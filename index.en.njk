@@ -11,7 +11,7 @@ body_class: "page-landing"
       <!-- Secondary Logo Above Title -->
       <img src="{{ '/assets/logo.png' | url }}" alt="Black Logo" class="main-logo h-7 w-auto max-w-[150px]" />
   
-      <h1 class="landing-main-title text-4xl mb-8 font-extrabold text-[#3B434B]">
+      <h1 class="en-landing-main-title text-4xl mb-8 font-extrabold text-[#3B434B]">
         How can we help you?
       </h1>
   
@@ -87,7 +87,7 @@ body_class: "page-landing"
             x-bind:class="searchQuery.length > 0 
               ? 'bg-[#808A96] text-[#EFF2F5] hover:bg-[#E2EBF2] hover:text-[#808A96] transition-all' 
               : 'bg-[#E2EBF2] text-[#BBC4CF] cursor-not-allowed'"
-            class="landing-search-button btn px-6 py-3 text-lg transition-all">
+            class="en-landing-search-button btn px-6 py-3 text-lg transition-all">
             Search
           </button>
         </div>
@@ -97,12 +97,12 @@ body_class: "page-landing"
       </form>
   
       <!-- Subtitle -->
-      <p class="text-lg text-[#808A96]">
+      <p class="en-landing-subtitle text-lg text-[#808A96]">
         Browse frequently asked questions or request customer support.
       </p>
   
       <!-- CTA Buttons -->
-      <div class="landing-btn-container flex space-x-1">
+      <div class="en-landing-btn-container flex space-x-1">
         <a 
           x-data 
           @click.prevent="
@@ -110,14 +110,14 @@ body_class: "page-landing"
               ? '/faq/index.en.html' 
               : '/faq/index.ko.html'
           "
-          class="landing-btn landing-btn-primary cursor-pointer">
-          View FAQ
+          class="en-landing-btn landing-btn-primary cursor-pointer">
+          FAQ
         </a>
-        <a href="mailto:client_support@rebellions.ai" class="landing-btn landing-btn-primary">
-          Request Support
+        <a href="mailto:client_support@rebellions.ai" class="en-landing-btn landing-btn-primary">
+          Contact Us
         </a>
-        <a href="https://docs.rbln.ai" class="landing-btn landing-btn-primary">
-          SDK Developer Docs
+        <a href="https://docs.rbln.ai" class="en-landing-btn landing-btn-primary">
+          SDK User Guide
         </a>
       </div>
     </div>

@@ -36,24 +36,30 @@
 
 /* Clean header layout */
 .header {
-  position: absolute;
-  top: 0.5rem;
-  left: 0;
-  right: 0;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
   z-index: 50;
+  box-sizing: border-box;
 }
 
-/* Language Toggle Top-Right */
+/* Logo reset */
+.header-logo img.logo {
+  height: 28px;
+  width: auto;
+}
+
+/* Language Toggle */
 .language-toggle {
-  position: absolute;
-  right: 2rem;
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -63,7 +69,6 @@
 .header-logo img.logo {
   height: 28px;
   width: auto;
-  display: block;
 }
 
 .main-logo {
@@ -82,7 +87,7 @@
   max-width: 1000px; /* Match Tailwind’s max-w-[1000px] */
   padding: 2.5rem; /* Match Tailwind’s p-10 */
   background-color: #F6F8FA;
-  margin-top: 140px;
+  margin-top: 180px;
   margin-bottom: 120px;
   margin-left: auto; /* Center horizontally */
   margin-right: auto; /* Center horizontally */
@@ -97,14 +102,23 @@
   line-height: 1.1; /* Tighten line height for large text */
 }
 
+.en-landing-main-container h1 {
+  font-family: 'Soehne', sans-serif !important;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  font-weight: 800;
+  color: #3B434B;
+  line-height: 1.1;
+}
+
 body.page-landing {
   font-family: 'Pretendard', sans-serif;
   background: url('./background.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   display: flex;
+  padding-top: 100px
   justify-content: center;
   overflow: hidden;
-  overflow-y: auto;
   position: relative;
 }
 
@@ -139,13 +153,34 @@ body.page-landing {
 
 .landing-search-button {
   padding: 12px 22px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 300;
   border-radius: 0px;
   border: 1px solid #1B1F23;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   flex-shrink: 0; /* Prevent shrinking */
+  white-space: nowrap; /* Ensure text stays on one line */
+}
+
+.en-landing-search-button:hover {
+  font-family: 'Space Mono', monospace !important;
+  background-color: #E2EBF2;
+  color: #3B434B;
+  font-weight: 300;
+  border: 1px solid #1B1F23;
+  cursor: pointer;
+}
+
+.en-landing-search-button {
+  font-family: 'Space Mono', monospace !important;
+  padding: 12px 22px;
+  font-size: 0.75rem;
+  font-weight: 300;
+  border-radius: 0px;
+  border: 1px solid #1B1F23;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
   white-space: nowrap; /* Ensure text stays on one line */
 }
 
@@ -175,8 +210,20 @@ body.page-landing {
   align-items: center;
   justify-content: center;
   padding: 12px 22px;
-  font-size: 1.1rem;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 200;
+  border-radius: 0px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out; /* Safari fix */
+}
+
+.en-landing-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  font-size: 0.9rem;
+  font-weight: 100;
   border-radius: 0px;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out; /* Safari fix */
@@ -191,18 +238,35 @@ body.page-landing {
   max-width: 600px; /* Optional: constrain button group */
 }
 
+.en-landing-btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  justify-content: center;
+  width: 100%; /* Ensure it spans the container */
+  max-width: 600px; /* Optional: constrain button group */
+  font-family: 'Space Mono', monospace;
+}
+
+.en-landing-subtitle {
+  font-family: 'Soehne', sans-serif;
+  font-size: 1rem;
+}
+
 .landing-btn-primary {
   background: #3B434B;
   color: #F6F8FA;
-  min-width: 140px; /* Consistent width for symmetry */
+  min-width: 118px; /* Consistent width for symmetry */
   border: 1px solid #1B1F23;
   text-align: center;
+  text-decoration: none;
 }
 
 .landing-btn-primary:hover {
   background: #BBC4CF;
   color: #3B434B;
   border: 1px solid #1B1F23;
+  text-decoration: none;
 }
 
 .landing-search-bar {
@@ -374,6 +438,7 @@ body.page-landing {
     
     /* === Search & Category === */
     .faq-search-bar {
+
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -731,4 +796,21 @@ body.page-landing {
 .lang-btn:focus {
   outline: none !important;
   box-shadow: none !important;
+}
+
+@media (max-width: 768px) {
+  .header {
+    position: relative;
+    padding: 1rem 1.5rem;
+  }
+
+  .language-toggle {
+    position: static; /* Prevent overlap issues */
+    justify-content: flex-end;
+  }
+
+  .lang-btn {
+    font-size: 14px;
+    padding: 5px 10px !important;
+  }
 }
